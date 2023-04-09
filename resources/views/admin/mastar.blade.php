@@ -116,11 +116,21 @@
 						<li><a href="messages.html"><i class="icon-envelope"></i><span class="hidden-tablet"> Messages</span></a></li>
 					    <li><a href="widgets.html"><i class="icon-dashboard"></i><span class="hidden-tablet"> Widgets</span></a></li>
 						<li>
-							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Dropdown</span><span class="label label-important"> 3 </span></a>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Category</span>
+                                {{-- <span class="label label-important"> 3 </span> --}}
+                            </a>
 							<ul>
-								<li><a class="submenu" href="submenu.html"><i class="icon-file-alt"></i><span class="hidden-tablet"> Sub Menu 1</span></a></li>
-								<li><a class="submenu" href="submenu2.html"><i class="icon-file-alt"></i><span class="hidden-tablet"> Sub Menu 2</span></a></li>
-								<li><a class="submenu" href="submenu3.html"><i class="icon-file-alt"></i><span class="hidden-tablet"> Sub Menu 3</span></a></li>
+								<li><a class="submenu" href="{{ route('category.index') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> All category</span></a></li>
+								<li><a class="submenu" href="{{ route('category.create') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Create Category</span></a></li>
+							</ul>
+						</li>
+                        <li>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Brand</span>
+                                {{-- <span class="label label-important"> 3 </span> --}}
+                            </a>
+							<ul>
+								<li><a class="submenu" href="{{ route('brand.index') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> All brand</span></a></li>
+								<li><a class="submenu" href="{{ route('brand.create') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Create brand</span></a></li>
 							</ul>
 						</li>
 						<li><a href="form.html"><i class="icon-edit"></i><span class="hidden-tablet"> Forms</span></a></li>

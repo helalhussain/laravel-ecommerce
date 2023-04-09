@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\BrandController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,3 +25,8 @@ Route::get('/admin/dashboard',[AdminAuthController::class,'admin_dashboard_page'
 ->name('admin_dashboard.page')->middleware('isAdminLogin');
 Route::post('/admin-login',[AdminAuthController::class,'admin_login']);
 Route::get('/admin-logout',[AdminAuthController::class,'admin_logout'])->name('admin.logout');
+
+Route::group(['prefix'=>'admin'],function(){
+    Route::resource('/category',CategoryController::class);
+    Route::resource('/brand',BrandController::class);
+});

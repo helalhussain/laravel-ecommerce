@@ -43,7 +43,7 @@ body {
                                 <label for="email" class="text-info">Email</label><br>
                                 <input type="email" name="email" id="email" class="form-control @error('email')
                                     is-invalid
-                                @enderror">
+                                @enderror" placeholder="Email">
                                 @error('email')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
@@ -52,7 +52,7 @@ body {
                                 <label for="password" class="text-info">Password</label><br>
                                 <input type="text" name="password" id="password" class="form-control @error('password')
                                     is-invalid
-                                @enderror">
+                                @enderror" placeholder="Password">
                                 @error('password')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
