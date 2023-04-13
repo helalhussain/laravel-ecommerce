@@ -9,7 +9,7 @@
 
 	<!-- start: Meta -->
 	<meta charset="utf-8">
-	<title>Bootstrap Metro Dashboard by Dennis Ji for ARM demo</title>
+	<title>Ecommerce</title>
 	<meta name="description" content="Bootstrap Metro Dashboard">
 	<meta name="author" content="Dennis Ji">
 	<meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
@@ -125,12 +125,30 @@
 							</ul>
 						</li>
                         <li>
-							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Brand</span>
-                                {{-- <span class="label label-important"> 3 </span> --}}
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i>
+                                <span class="hidden-tablet"> Brand</span>
                             </a>
 							<ul>
 								<li><a class="submenu" href="{{ route('brand.index') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> All brand</span></a></li>
 								<li><a class="submenu" href="{{ route('brand.create') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Create brand</span></a></li>
+							</ul>
+						</li>
+                        <li>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i>
+                                <span class="hidden-tablet"> Unit</span>
+                            </a>
+							<ul>
+								<li><a class="submenu" href="{{ route('unit.index') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> All unit</span></a></li>
+								<li><a class="submenu" href="{{ route('unit.create') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Create unit</span></a></li>
+							</ul>
+						</li>
+                        <li>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i>
+                                <span class="hidden-tablet"> Size</span>
+                            </a>
+							<ul>
+								<li><a class="submenu" href="{{ route('size.index') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> All size</span></a></li>
+								<li><a class="submenu" href="{{ route('size.create') }}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Create size</span></a></li>
 							</ul>
 						</li>
 						<li><a href="form.html"><i class="icon-edit"></i><span class="hidden-tablet"> Forms</span></a></li>

@@ -14,7 +14,7 @@ class BrandController extends Controller
      */
     public function index()
     {
-        $brand = Brand::where('status',1)->get();
+        $brand = Brand::all();
         return view('admin.brand.index',compact('brand'));
     }
 
@@ -104,6 +104,15 @@ class BrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     public function status(Brand $brand){
+        if($brand->status==1){
+            $brand->update(['status'=>0]);
+        }else{
+            $brand->update(['status'=>1]);
+        }
+         return redirect()->back()->with('success','Status update');
+     }
     public function destroy(Brand $brand)
     {
         $delete = $brand->delete();

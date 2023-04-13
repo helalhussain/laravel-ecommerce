@@ -5,6 +5,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\SizeController;
+use App\Http\Controllers\UnitController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,4 +31,9 @@ Route::get('/admin-logout',[AdminAuthController::class,'admin_logout'])->name('a
 Route::group(['prefix'=>'admin'],function(){
     Route::resource('/category',CategoryController::class);
     Route::resource('/brand',BrandController::class);
+    Route::get('/category-status{category}',[CategoryController::class,'status'])->name('category.status');
+    Route::get('/brand-status{brand}',[BrandController::class,'status'])->name('brand.status');
+
+    Route::resource('size', SizeController::class);
+    Route::resource('unit', UnitController::class);
 });

@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Category;
-use Illuminate\Support\Facades\DB;
+use App\Models\Unit;
 
-class CategoryController extends Controller
+class UnitController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $category = Category::all();
-        return view('admin.category.index',compact('category'));
+        $unit = Unit::all();
+        return view('admin.unit.index',compact('unit'));
     }
 
     /**
@@ -26,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.category.create');
+        return view('admin.unit.create');
     }
 
     /**
@@ -38,17 +37,16 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title'=>'required|unique:categories',
+            'title'=>'required|unique:units',
             'description'=>'required|min:5|max:500',
-            'image'=>'required'
+
         ]);
-        $store = new Category();
+        $store = new Unit();
         $store->title = $request->title;
         $store->description = $request->description;
-        $store->image = $request->image->store('images/category');
         $store->save();
         if($store){
-            return redirect()->route('category.index')->with('success','Category Addedd');
+            return redirect()->route('unit.index')->with('success','Unit Addedd');
         }
     }
 
@@ -69,9 +67,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(Unit $unit)
     {
-        return view('admin.category.edit',compact('category'));
+        return view('admin.unit.edit',compact('unit'));
     }
 
     /**
@@ -81,43 +79,27 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Unit $unit)
     {
-        $input = $request->all();
         $request->validate([
-            'title' => 'required:unique:categories',
-            'description' => 'required|max:400',
-
+            'title'=>'required',
+            'description'=>'required'
         ]);
-       $edit = $category->update([
+        $update = $unit->update([
             'title'=>$request->title,
-            'description'=>$request->description,
-       ]);
-        if($edit){
-            return redirect()->route('category.index')->with('success','Edited');
-        }else{
-            return redirect()->back();
-        }
-
+            'description'=>$request->description
+        ]);
+        return redirect()->route('unit.index')->with('success','Unit updated success');
     }
-    public function status(Category $category){
 
-        if($category->status==1){
-            $category->update(['status'=>0]);
-        }else{
-            $category->update(['status'=>1]);
-        }
-        return redirect()->back()->with('success','Status update success');
-    }
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, Category $category)
+    public function destroy($id)
     {
-        $delete = $category->Delete();
-        return redirect()->route('category.index')->with('success','Deleted');
+        //
     }
 }

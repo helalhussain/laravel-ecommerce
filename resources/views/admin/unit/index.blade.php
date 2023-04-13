@@ -9,7 +9,7 @@
 <div class="row-fluid sortable">
     <div class="box span12">
         <div class="box-header" data-original-title>
-            <h2><i class="halflings-icon user"></i><span class="break"></span>Category</h2>
+            <h2><i class="halflings-icon user"></i><span class="break"></span>Unit</h2>
 
             <div class="box-icon">
                 <a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
@@ -22,42 +22,37 @@
               <thead>
                   <tr>
                       <th style="width: 5%">No</th>
-                      <th style="width: 10%">Image</th>
-                      <th style="width: 15%">Title</th>
+                      <th style="width: 25%">Title</th>
                       <th style="width: 30%">Description</th>
                       <th style="width: 10%">Status</th>
                       <th style="width: 30%">Actions</th>
                   </tr>
               </thead>
               <tbody>
-                @if($category->isNotEmpty())
-                @foreach ($category as $key=>$cat)
+                @if($unit->isNotEmpty())
+                @foreach ($unit as $key=>$un)
                 <tr>
                     <td>{{ $key+1 }}</td>
-                    <td><img src="{{ asset('/storage/'.$cat->image) }}"
-                        style="width:90px;height:80px;" alt=""></td>
-                    <td class="center">{{ $cat->title }}</td>
-                    <td class="center">{{ $cat->description }}</td>
-                    <td class="center">
 
-                        @if($cat->status==1)
-                            <a href="{{ route('category.status',$cat->id) }}" class="btn btn-danger">
+                    <td class="center">{{ $un->title }}</td>
+                    <td class="center">{{ $un->description }}</td>
+                    <td class="center">
+                        @if($un->status==1)
+                            <a href="" class="btn btn-danger">
                                 Deactive
                             </a>
-                        @else
-                            <a href="{{ route('category.status',$cat->id) }}" class="btn btn-success">
+                         @else
+                            <a href="" class="btn btn-success">
                                 Active
                             </a>
                         @endif
+
                     </td>
                     <td class="center">
-                        <a class="btn btn-success" href="{{ route('category.edit',$cat->id) }}">
-                            <i class="halflings-icon white zoom-in"></i>
-                        </a>
-                        <a class="btn btn-info" href="{{ route('category.edit',$cat->id) }}">
+                        <a class="btn btn-info" href="{{ route('unit.edit',$un->id) }}">
                             <i class="halflings-icon white edit"></i>
                         </a>
-                        <form action="{{ route('category.destroy',$cat->id) }}" method="post">
+                        <form action="{{ route('unit.destroy',$un->id) }}" method="post">
                             @csrf
                             @method('DELETE')
                         <button type="submit" class="btn btn-danger">
@@ -68,7 +63,7 @@
                 </tr>
                 @endforeach
                 @else
-                    <tr><td>No data</td></tr>
+                    <tr>No data</tr>
                 @endif
               </tbody>
           </table>

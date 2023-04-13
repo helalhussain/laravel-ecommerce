@@ -37,12 +37,18 @@
                     <td class="center">{{ $br->title }}</td>
                     <td class="center">{{ $br->description }}</td>
                     <td class="center">
-                        <span class="label label-success">Active</span>
+                        @if($br->status==1)
+                            <a href="{{ route('brand.status',$br->id) }}" class="btn btn-danger">
+                                Deactive
+                            </a>
+                         @else
+                            <a href="{{ route('brand.status',$br->id) }}" class="btn btn-success">
+                                Active
+                            </a>
+                        @endif
+
                     </td>
                     <td class="center">
-                        <a class="btn btn-success" href="{{ route('brand.edit',$br->id) }}">
-                            <i class="halflings-icon white zoom-in"></i>
-                        </a>
                         <a class="btn btn-info" href="{{ route('brand.edit',$br->id) }}">
                             <i class="halflings-icon white edit"></i>
                         </a>
